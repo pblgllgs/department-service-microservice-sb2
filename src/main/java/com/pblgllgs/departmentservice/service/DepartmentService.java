@@ -5,4 +5,6 @@ import com.pblgllgs.departmentservice.dto.DepartmentDto;
 public interface DepartmentService {
 
     DepartmentDto createDepartment(DepartmentDto department);
+
+    DepartmentDto findByDepartmentCode(String code);
 }
