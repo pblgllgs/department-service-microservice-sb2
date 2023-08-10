@@ -1,12 +1,10 @@
 package com.pblgllgs.departmentservice.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -32,4 +30,17 @@ public class Department {
     private String departmentDescription;
     @Column(name = "department_code", nullable = false)
     private String departmentCode;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Department that = (Department) o;
+        return Objects.equals(id, that.id) && Objects.equals(departmentName, that.departmentName) && Objects.equals(departmentDescription, that.departmentDescription) && Objects.equals(departmentCode, that.departmentCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, departmentName, departmentDescription, departmentCode);
+    }
 }
